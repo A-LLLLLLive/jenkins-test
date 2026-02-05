@@ -30,7 +30,7 @@ pipeline {
         stage('Check Result') {
             steps {
                 echo '생성된 이미지 확인:'
-                bat "docker images | grep my-test-app"
+                bat "docker images | findstr my-test-app"
             }
         }
     }
@@ -42,4 +42,5 @@ pipeline {
     }
 
 }
+
 
