@@ -13,7 +13,7 @@ pipeline {
         stage('Verify Files') {
             steps {
                 echo '레포지토리 파일 목록:'
-                sh 'ls -al'
+                bat 'ls -al'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo '도커 이미지를 빌드합니다...'
                 // 로컬 젠킨스 서버에 'my-test-app'이라는 이름으로 이미지 생성
-                sh "docker build -t my-test-app:local ."
+                bat "docker build -t my-test-app:local ."
             }
         }
 
@@ -30,7 +30,7 @@ pipeline {
         stage('Check Result') {
             steps {
                 echo '생성된 이미지 확인:'
-                sh "docker images | grep my-test-app"
+                bat "docker images | grep my-test-app"
             }
         }
     }
@@ -40,4 +40,5 @@ pipeline {
             echo '로컬 이미지 빌드 성공!'
         }
     }
+
 }
