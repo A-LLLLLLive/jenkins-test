@@ -13,7 +13,7 @@ pipeline {
         stage('Verify Files') {
             steps {
                 echo '레포지토리 파일 목록:'
-                bat 'ls -al'
+                bat 'dir'
             }
         }
 
@@ -42,3 +42,4 @@ pipeline {
     }
 
 }
+
